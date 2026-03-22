@@ -165,7 +165,7 @@ body{
 header{
   background-color: var(--blue-bulletin);
   color: var(--watchdog-white);
-  padding: 2rem 1rem 1rem 1rem;
+  padding: 2rem 1rem 1rem;
   width: 100%;
   margin: 0;
 }
@@ -350,7 +350,8 @@ blockquote{
 footer{
   background-color: var(--blue-bulletin);
   color: var(--watchdog-white);
-  padding: 1rem;
+  padding: 1.5rem 1rem;
+  width: 100%;
 }
 
 #socials ul{
@@ -479,9 +480,17 @@ footer p{
 
 /* ///ADD/// x-large styles 1024px */
 @media (min-width: 1024px) {
-  header, footer, main{
+  main{
     max-width: 1200px;
+    margin: 1rem auto;
   }
+
+  header > *, footer > *{
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   #featured-articles {
     grid-template-columns: repeat(4, 1fr);
   }
