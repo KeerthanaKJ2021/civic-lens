@@ -1,10 +1,64 @@
-/* CSS by ///ADD/// YOUR NAME */
+/* CSS by Keerthana Krishnakumar Juttu */
 
 /* Imported Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,300..900;1,18..144,87..112,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 
-/* ///ADD/// CSS Reset */
+/* CSS Reset */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 
 /* Root Variables */
 :root {
@@ -28,6 +82,20 @@ body.dark-mode {
   background-color: var(--truth-text);
   color: var(--watchdog-white);
 }
+body.dark-mode #featured-articles section{
+  background-color: var(--truth-text);
+  color: var(--watchdog-white);
+}
+body.light-mode #featured-articles section{
+  background-color: var(--watchdog-white);
+  color: var(--truth-text);
+}
+body.dark-mode #featured-articles h3{
+  border-bottom: 0.75px solid var(--watchdog-white);
+}
+body.light-mode #featured-articles h3{
+  border-bottom: 0.75px solid var(--truth-text);
+}
 #theme-toggle {
   position: absolute;
   top: 1rem;
@@ -39,27 +107,430 @@ body.dark-mode {
 }
 
 /* ///ADD/// Skip Link Styles */
+#skip{
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+ 
+#skip:focus{
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  background: var(--news-flash);
+  color: white;
+  padding: .5rem 1rem;
+  z-index: 1000;
+}
 
 /* ///ADD/// Navigation Styles */
+nav {
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+
+nav a{
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+nav li{
+  list-style: none;
+}
+
+a{
+  display: block;
+}
 
 /* ///ADD/// Global Layout Styles */
+body{
+  font-family: var(--font-body);
+  line-height: 1.35;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  padding: 2rem 1rem 1rem 1rem;
+  width: 100%;
+  margin: 0;
+}
+
+.tagline{
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: var(--watchdog-white);
+}
+
+.menu{
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.menu-button{
+  background: var(--news-flash);
+  color: var(--watchdog-white);
+  padding: 0.75rem;
+  display: inline-block;
+  cursor: pointer;
+}
+
+main{
+  width: calc(100% - 2rem);
+  max-width: 1100px;
+  margin: 1rem auto;
+  padding: 1rem;
+}
+
+main section{
+  margin: 1rem auto;
+  margin-bottom: 3rem;
+}
+
+/*Breaking News*/
+#breaking-news{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+#breaking-news section{
+  border: 1.5px solid black;
+  padding: 0.5rem;
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+  height: 100%;
+}
+
+#breaking-news h3{
+  border-bottom: 0.75px solid var(--watchdog-white);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#breaking-news p{
+  color: var(--watchdog-white);
+}
+
+#breaking-news h3, #breaking-news p{
+  grid-column-start: 1;
+  grid-column-end: -1;
+  padding: 0;
+}
+
+#breaking-news > h2{
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+
+#breaking-news video{
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+}
+
+/*featured articles*/
+#featured-articles{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+#featured-articles section{
+  border: 1.5px solid var(--truth-text);
+  padding: 1rem;
+  background-color: var(--watchdog-white);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  width: 100%;
+  height: 100%;
+}
+
+#featured-articles h3{
+  border-bottom: 0.75px solid var(--truth-text);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.25rem;
+}
+
+#featured-articles h3, #featured-articles p{
+  grid-column-start: 1;
+  grid-column-end: -1;
+  padding: 0;
+}
+
+#featured-articles > h2{
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+
+/*quote*/
+blockquote{
+  text-align: center;
+  font-style: normal;
+  margin: 2rem auto;
+}
+
+/*form*/
+#alerts form{
+  background-color: var(--news-flash);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+#alerts input[type="text"], #alerts input[type="tel"]{
+  width: 100%;
+  padding: 0.6rem;
+  border: none;
+}
+
+#alerts fieldset{
+  border: 1px solid var(--truth-text);
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  row-gap: 0.5rem;
+  column-gap: 0.5rem;
+  align-items: center;
+}
+
+#alerts legend{
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--watchdog-white);
+}
+
+#submit {
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  padding: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+#submit:hover {
+  background-color: var(--watchdog-white);
+  color: var(--blue-bulletin);
+  border: 1px solid var(--news-flash);
+}
+
+/*footer*/
+footer{
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  padding: 1rem;
+}
+
+#socials ul{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 0.5rem;
+}
+
+#socials a{
+  background: var(--news-flash);
+  color: var(--watchdog-white);
+  padding: 0.75rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
 
 /* ///ADD/// Global Text Styles */
+h1{
+  font-family: var(--font-heading);
+  font-size: 3rem;
+}
 
+.tagline{
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  text-align: left;
+}
+
+h2{
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+}
+
+h3{
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+p{
+  margin: 0 auto;
+  padding: 0.5rem 0;
+}
+
+.required{
+  color: var(--news-flash);
+}
+
+footer p{
+  margin: 0.5rem;
+  text-align: center;
+}
 
 /* ///ADD/// medium styles 620px */
+@media (min-width: 620px) {
+  .menu{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, auto));
+    gap: 0.5rem;
+    justify-content: start;
+  }
 
+  .menu-button{
+    display: none;
+  }
+
+  #breaking-news{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #featured-articles{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #alerts form{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #alerts label[for="name"]{
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  #alerts label[for="phone"]{
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  #alerts #name{
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  #alerts #phone{
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  #alerts fieldset{
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: auto 1fr auto 1fr auto 1fr;
+    row-gap: 0.6rem;
+    column-gap: 1rem;
+  }
+
+  #submit{
+    grid-column: span 2;
+  }
+
+  #socials ul{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, auto));
+    gap: 0.5rem;
+    justify-content: start;
+  }
+}
 
 /* ///ADD/// large styles 920px */
-
+@media (min-width: 920px) {
+  #featured-articles{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
 /* ///ADD/// x-large styles 1024px */
-
+@media (min-width: 1024px) {
+  header, footer, main{
+    max-width: 1200px;
+  }
+  #featured-articles {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 
 /* ///ADD/// Interaction Queries for color scheme light and dark and motion preference */
+@media (prefers-color-scheme: light) {
+  body:not(.dark-mode):not(.light-mode){
+    background-color: var(--watchdog-white);
+    color: var(--truth-text);
+  }
 
+  body:not(.dark-mode):not(.light-mode) #featured-articles section{
+    background-color: var(--watchdog-white);
+    color: var(--truth-text);
+  }
+
+  body:not(.dark-mode):not(.light-mode) #featured-articles h3{
+    border-bottom: 0.75px solid var(--truth-text);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not(.dark-mode):not(.light-mode){
+    background-color: var(--truth-text);
+    color: var(--watchdog-white);
+  }
+
+  body:not(.dark-mode):not(.light-mode) #featured-articles section{
+    background-color: var(--truth-text);
+    color: var(--watchdog-white);
+  }
+
+  body:not(.dark-mode):not(.light-mode) #featured-articles h3{
+    border-bottom: 0.75px solid var(--watchdog-white);
+  }
+}
+
+/*reduced motion*/
+@media (prefers-reduced-motion: reduce) {
+  *{
+    animation: none !important;
+    transition: none !important;
+  }
+}
 
 /* ///ADD///  Feature Query for :has() that checks if the #menu-toggle is checked */
 @supports (selector(:has(*))) {
-
+  body:has(#menu-toggle:checked) .menu{
+    display: flex;
+  }
 }
